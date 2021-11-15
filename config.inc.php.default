@@ -1,0 +1,89 @@
+<?php
+  
+  $rrd_bin = '/usr/bin/rrdtool';
+  $rrd_root_dir = "/usr/share/simple-rrd/";
+  $rrd_db_dir = "{$rrd_root_dir}db/";
+  $png_dir = "/dev/shm/";
+
+  $alteon3408_ip = '192.168.249.60';
+  $alteon3408_community = 'testmrtg';
+  $alteon3408_snmpv = '2c';
+
+  $alteon_slb = array(
+     #array('TP-SLB1-1', '192.168.249.60', 'testmrtg', '2c', array('11'=>'11', '12'=>'12', '21'=>'21', '22'=>'22', '23'=>'23', '24'=>'24', '25'=>'25', '26'=>'26', '27'=>'27', '28'=>'28', '29'=>'29', '30'=>'30', '31'=>'31'), '99FFFF'),
+     #array('TP-SLB2-1', '192.168.249.52', 'testmrtg', '2c', array('11'=>'11', '12'=>'12', '13'=>'13', '14'=>'14', '15'=>'15', '16'=>'16', '21'=>'21', '22'=>'22', '31'=>'31', '32'=>'32'), '99FFFF'),
+
+     #array('TC-SLB1', '10.95.1.254', 'testmrtg', '2c', array('11'=>'11', '12'=>'12', '21'=>'21', '22'=>'22', '23'=>'23', '24'=>'24', '25'=>'25', '26'=>'26'), 'D28EFF'),
+     #array('TC-SLB2', '10.95.8.254', 'testmrtg', '2c', array('11'=>'11', '12'=>'12', '14'=>'14', '15'=>'15', '21'=>'21', '22'=>'22', '31'=>'31'), 'D28EFF'),
+  );
+
+
+  $web_title = "simple-rrd";
+
+  #####################################################
+  # db_file, name, ip, community, snmp_version
+  #####################################################
+
+  $cisco_switch = array(
+#    array('idc-3750-cache','IDC-3750-Cache(B02)','172.22.1.250','public','2c'),
+#    array('idc-3750-cache2','IDC-3750-Cache(B07)','172.22.1.251','public','2c'),
+  );
+
+  $fortinet_fw = array(
+#    array('172.21.6.1', '172.21.6.1', '172.21.6.1', 'public', '2c'),
+#    array('172.22.2.254', '172.22.2.254', '172.22.2.254', 'public', '2c'),
+#    array('172.22.5.1', '172.22.5.1', '172.22.5.1', 'public', '2c'),
+#    array('172.21.6.1', '172.21.6.1', '172.21.6.1', 'public', '2c'),
+    
+  );
+  
+
+  $proxy_server = array(
+
+  #############################
+  # db_file, name, ip, community, snmp_version, io_index, ram_buffer, ram_memory, ram_swap, ram_total
+  # get disk io index:
+  # snmpwalk -c public -v 2c 192.168.10.215 diskIODevice
+  # get ram_index
+  # snmpwalk -c public -v 2c 192.168.10.215 hrStorage
+  #############################
+    #array('tax-mrtg','MRTG','localhost','public','2c', array('25'=>'/dev/sda'), 2),
+#    array('lab-gluster08','Lab: Gluster08','gluster08','public','2c', array('17'=>'sda', '19'=>'sda2'), 2),
+  );
+
+
+
+
+
+  #############################
+  # db_file, name, cl_no
+  #############################
+  $proxy_domain = array(
+    #array('squid-test','test','9200000'),
+    #array('squid-house','proxy bandwidth for house','9200aaa')
+  );
+
+  #######################################################
+  # db_file, name, ip, community, snmp_version, oid, upper limit, backgroud color
+  #######################################################
+  $bw_rrd = array(
+    array('DB2F-F10-L3-wan', 'enp22s0f1(WAN)', 'localhost', 'public', '2c', '7', '100000', 'FFFFCC'),
+    array('DB2F-F10-L3-lan', 'enp22s0f0(LAN)', 'localhost', 'public', '2c', '6', '100000', 'D8F6CE'),
+  );
+
+  $bw_group_rrd = array(
+    #'uplink_total', 'Uplink (ns100+ns204)', array('bw-ns204-ethernet3','bw-ns100-untrust')
+    
+  );
+
+/*
+  # test
+  $rs_arr = array('192.168.42.171'=>'rs-banned-171','192.168.42.172'=>'rs-banned-172','192.168.42.173'=>'rs-banned-173','192.168.42.174'=>'rs-banned-174','192.168.42.175'=>'rs-banned-175');
+  $rs_arr2 = array('192.168.42.171'=>'rs-banned2-171','192.168.42.172'=>'rs-banned2-172','192.168.42.173'=>'rs-banned2-173','192.168.42.174'=>'rs-banned2-174','192.168.42.175'=>'rs-banned2-175');
+
+*/
+
+require_once 'function.inc.php';
+
+
+?>

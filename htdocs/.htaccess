@@ -1,0 +1,5 @@
+AuthUserFile /usr/rrdtool/simple-rrd/passwd/.passwd-rrdtool
+AuthGroupFile /dev/null 
+AuthName "Password required" 
+AuthType Basic
+require valid-user

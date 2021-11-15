@@ -1,0 +1,3 @@
+rrdtool2 create default-rs-banned2.rrd --step 300 DS:ds0:GAUGE:600:0:U
+DS:ds1:GAUGE:600:0:U DS:ds2:GAUGE:600:0:U DS:ds3:GAUGE:600:0:U
+RRA:AVERAGE:0.5:1:315360
